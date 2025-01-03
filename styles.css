@@ -26,8 +26,50 @@
   }
 
 
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main {
+  display: flex;
+  width: 300px;
+  border: solid rgb(0, 0, 0);
+  flex-wrap: wrap;
+  /* overflow: auto; */
+}
+
+.display {
+  width: 100%;
+}
+
+.numbers {
+  display: flex;
+  flex-wrap: wrap;
+  width: 50%;
+}
+
+.operators {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.operator {
+  aspect-ratio: 1;
+  width: 4rem;
+}
+
 .number {
   border-radius: 5px; 
   aspect-ratio: 1; 
-  width: 2rem;
+  width: 4rem;
 }
+
+.display {
+  border: solid black;
+}
+
+
