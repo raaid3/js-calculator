@@ -12,18 +12,20 @@ const display = document.querySelector(".display");
 
 
 
+
 function updateDisplay(){
-    switch(displaying){
-        case "first":
-            display.textContent = first_number;
-            break;
-        case "second":
-            display.textContent = second_number;
-            break;
-        case "result":
-            display.textContent = result;
-            break;
-    }
+    // switch(displaying){
+    //     case "first":
+    //         display.textContent = first_number;
+    //         break;
+    //     case "second":
+    //         display.textContent = second_number;
+    //         break;
+    //     case "result":
+    //         display.textContent = result;
+    //         break;
+    // }
+    display.textContent = `${first_number} ${operator} ${second_number}`
 }
 
 updateDisplay();
@@ -42,14 +44,14 @@ body.addEventListener("click", (event)=>{
                 // preventing unecessary leading zeros
                 second_number === "0" ? second_number = event.target.textContent :
                                         second_number += event.target.textContent;
-                console.log(second_number);
+                // console.log(second_number);
             }
 
             // when first nummber is the result of the previous computation, replace it with new first_number
             else if (typeof(first_number) === "number") {
                 displaying = "first";
                 first_number = event.target.textContent;
-                console.log(first_number);
+                // console.log(first_number);
             }
 
             // operator button isn't active, update first_number
@@ -59,7 +61,7 @@ body.addEventListener("click", (event)=>{
                 // preventing unecessary leading zeros
                 first_number === "0" ? first_number = event.target.textContent : 
                                        first_number += event.target.textContent;
-                console.log(first_number);
+                // console.log(first_number);
             }
         }
 
@@ -79,14 +81,14 @@ body.addEventListener("click", (event)=>{
                 second_number = "";
                 operator = event.target.textContent;
                 displaying = "result";
-                console.log(result);
-                console.log(operator)
+                // console.log(result);
+                // console.log(operator)
             }
             
             // if first_number is not empty activate operator
             else if (first_number !== ""){
                 operator = event.target.textContent;
-                console.log(operator)
+                // console.log(operator)
             }
         }
 
@@ -103,7 +105,7 @@ body.addEventListener("click", (event)=>{
                 second_number = "";
                 operator = "";
                 displaying = "result"
-                console.log(result);
+                // console.log(result);
             }
         }
         // if user clicked "ac"
@@ -114,7 +116,7 @@ body.addEventListener("click", (event)=>{
             operator = "";
             result = 0;
             displaying = "first";
-            console.log("RESETTING")
+            // console.log("RESETTING")
         }
         // if user clicked "."
         else if (target.id === "decimal") {
@@ -123,7 +125,7 @@ body.addEventListener("click", (event)=>{
             if(displaying === "first") {
                 if(!isNaN(first_number + ".")){
                     first_number += ".";
-                    console.log(first_number);
+                    // console.log(first_number);
                 }
             }
             else if (displaying === "second") {
@@ -131,7 +133,7 @@ body.addEventListener("click", (event)=>{
             // expression is a valid number
                 if(!isNaN(second_number + ".")){
                     second_number += ".";
-                    console.log(second_number)
+                    // console.log(second_number)
                 }
             }
             if (displaying === "result") {
@@ -139,10 +141,18 @@ body.addEventListener("click", (event)=>{
                 // display result
                 if(!isNaN(first_number + ".")){
                     first_number += ".";
-                    console.log(first_number);
+                    // console.log(first_number);
                     displaying = "first";
                     result = 0;
                 }
+            }
+        }
+        else if (target.id === "sign") {
+            if(operator && second_number !== ""){
+                second_number = (+second_number * -1).toString();
+            }
+            else if (!operator){
+                first_number = (+first_number * -1).toString();
             }
         }
         updateDisplay();
@@ -200,10 +210,6 @@ let equals_button = document.createElement("button");
 equals_button.textContent = "=";
 equals_button.classList.add("button");
 ops.appendChild(equals_button);
-
-
-
-
 
 
 // operator functions
