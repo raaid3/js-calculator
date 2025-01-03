@@ -162,6 +162,7 @@ for(let i = 0; i < 11; i++) {
         button.classList.add("number");
         if(i+1 === 10) {
             button.textContent = "0";
+            button.id = "zero";
         }
         else{
             button.textContent = (i + 1).toString();
@@ -171,22 +172,22 @@ for(let i = 0; i < 11; i++) {
 }
 
 // creating operator buttons
-for(let i = 0; i < 4; i++){
+for(let i = 0; i < 3; i++){
     let op = document.createElement("button");
     op.classList.add("operator");
     op.classList.add("button");
     switch(i){
+        // case 0:
+        //     op.textContent = "/";
+        //     break;
         case 0:
-            op.textContent = "+";
+            op.textContent = "*";
             break;
         case 1:
             op.textContent = "-";
             break;
         case 2:
-            op.textContent = "*";
-            break;
-        case 3:
-            op.textContent = "/";
+            op.textContent = "+";
             break;
     }
 
@@ -235,5 +236,4 @@ function mul(a, b) {
 function div(a, b) {
     return a / b;
 }
-
 

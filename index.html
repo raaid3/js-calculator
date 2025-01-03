@@ -3,17 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>JS Calculator</title>
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
 </head>
 <body>
     <div class="main">
         <div class="display"></div>
-        <div class="numbers"></div>
-        <div class="operators"></div>
         <div class="bottom-buttons">
-            <button id="ac">AC</button>
+            <div class="top-buttons">
+                <button id="ac" class="top-button">AC</button><button id="sign" class="top-button">+/-</button><button id="div" class="operator button">/</button>
+            </div>
+            <div class="numbers"></div>
+            <div class="operators"></div>
         </div>
     </div>
 </body>
