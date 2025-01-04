@@ -4,6 +4,8 @@
 /* My reset */
 :root {
     line-height: 1.5;
+    --nums-bg-color: #2a2a2c;
+    --ops-bg-color: #ff9f0a;
   }
   
   h1, h2, h3, h4, h5, figure, p, ol, ul {
@@ -32,6 +34,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #757575;
 }
 
 .main {
@@ -83,9 +86,14 @@ body {
   flex-grow: 1;
   /* border-radius: 5px;  */
   /* aspect-ratio: 1;  */
-  background-color: #2a2a2c;
+  background-color: var(--nums-bg-color);
   width: 4rem;
 }
+
+.number:active {
+  background-color: hsl(from var(--nums-bg-color) h s 25%);
+}
+
 
 #zero {
   /* width: 8rem; */
@@ -98,6 +106,10 @@ body {
   background-color: #5c5c5f;
 }
 
+.top-button:active {
+  background-color: hsl(from #5c5c5f h s 25%);
+}
+
 .top-buttons {
   width: 100%;
 }
@@ -106,7 +118,10 @@ body {
   /* width: 4rem; */
   /* flex-grow: 1; */
   width: calc(100% / 3);
-  background-color: #2a2a2c;
+  background-color: var(--nums-bg-color);
+}
+#decimal:active {
+  background-color: hsl(from var(--nums-bg-color) h s 25%);
 }
 
 #ac {
@@ -122,7 +137,11 @@ body {
 }
 
 .button {
-  background-color: #ff9f0a;
+  background-color: var(--ops-bg-color);
+}
+
+.button:active {
+  background-color: hsl(from var(--ops-bg-color) h s 25%);
 }
 
 button {
@@ -135,4 +154,11 @@ button {
 
 button:hover {
   transform: scale(1.05);
+}
+
+button:active {
+  /* background-color: rgb(101, 101, 101); */
+  /* filter: brightness(0.5); */
+  /* color: hsl(from color h s 80%); */
+  /* background-color: hsl(from color h s 10%); */
 }

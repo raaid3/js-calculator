@@ -122,7 +122,7 @@ body.addEventListener("click", (event)=>{
         else if (target.id === "decimal") {
             // if first_number is displaying, only insert a "." if resulting
             // expression is a valid number
-            if(displaying === "first") {
+            if(displaying === "first" && !operator) {
                 if(!isNaN(first_number + ".")){
                     first_number += ".";
                     // console.log(first_number);
